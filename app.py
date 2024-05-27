@@ -25,7 +25,7 @@ def typing_effect(text):
     for char in text:
         typed_text += char
         placeholder.markdown(f"**Chatbot:** {typed_text}")
-        time.sleep(0.05)  # Adjust the speed of the typing effect
+        time.sleep(0.0005)  # Adjust the speed of the typing effect
     return typed_text
 
 def main():
