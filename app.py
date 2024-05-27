@@ -24,7 +24,7 @@ def typing_effect(text):
     typed_text = ""
     for char in text:
         typed_text += char
-        placeholder.markdown(f"**Chatbot:** {typed_text}")
+        placeholder.markdown(f"**Accounting Bot:** {typed_text}")
         time.sleep(0.0005)  # Adjust the speed of the typing effect
     return typed_text
 
@@ -43,12 +43,12 @@ def main():
         st.image('groqcloud_darkmode.png')
 
     # The title and greeting message of the Streamlit application
-    st.title("Chat with AccountingBot!")
+    st.title("Chat with Accounting Bot!")
     st.write("Hello! I'm your friendly Accounting chatbot. I can help answer your questions, provide information, or just chat. I'm also super fast! Let's start our conversation!")
 
     # Add customization options to the sidebar
     st.sidebar.title('Customization')
-    system_prompt = st.sidebar.text_input("System prompt:", value="You are AccountingBot, an accounting chatbot that specializes on journal entry, financial analysis and budgeting.")
+    system_prompt = st.sidebar.text_input("System prompt:", value="You are Accounting Bot, an accounting chatbot that specializes on journal entry, financial analysis and budgeting.")
     model = 'llama3-70b-8192'
     conversational_memory_length = st.sidebar.slider('Conversational memory length:', 1, 10, value = 5)
     temperature = st.sidebar.slider('Response Temperature:', 0.0, 1.0, value=0.7)
