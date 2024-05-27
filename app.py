@@ -14,8 +14,18 @@ from langchain.chains.conversation.memory import ConversationBufferWindowMemory
 from langchain_groq import ChatGroq
 from langchain.prompts import PromptTemplate
 from dotenv import load_dotenv
+from streamlit_autorefresh import st_autorefresh
 
 load_dotenv()
+
+def typing_effect(text):
+    placeholder = st.empty()
+    typed_text = ""
+    for char in text:
+        typed_text += char
+        placeholder.markdown(f"**Chatbot:** {typed_text}")
+        time.sleep(0.05)  # Adjust the speed of the typing effect
+    return typed_text
 
 def main():
     """
@@ -96,7 +106,8 @@ def main():
         response = conversation.predict(human_input=user_question)
         message = {'human':user_question,'AI':response}
         st.session_state.chat_history.append(message)
-        st.write("Chatbot:", response)
+        #st.write("Chatbot:", response)
+        typing_effect(response)
 
 if __name__ == "__main__":
     main()
